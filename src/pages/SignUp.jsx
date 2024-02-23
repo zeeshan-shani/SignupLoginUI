@@ -1,14 +1,20 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import Logo from "../assets/Logo.png";
 import Facebook from "../assets/facebook.png";
 import Google from "../assets/google.png";
 import { useNavigate } from "react-router-dom";
-
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 export const SignUp = () => {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate("/");
   };
+  const handleContinueClick = () => {
+    navigate("/auth");
+  };
+  const handleBack=()=>{
+    navigate("/");
+  }
   return (
     <Container>
       <Box
@@ -21,7 +27,10 @@ export const SignUp = () => {
           rowGap: { xs: "3rem", md: "5rem" },
         }}
       >
-        <img width={"274px"} src={Logo} className="logo" alt="Vite logo" />
+        <Box sx={{display:"flex"}}>
+          <img width={"274px"} src={Logo} className="logo" alt="Vite logo" />
+          <Button sx={{color:"black",position:"absolute",right:"2rem",top:{xs:"2rem",md:"5rem"}}} onClick={handleBack}><ArrowBackIosNewIcon fontSize="4"/>Back</Button>
+        </Box>
         <Box
           sx={{
             display: "flex",
@@ -84,6 +93,7 @@ export const SignUp = () => {
                 cursor: "pointer",
                 backgroundColor: "#633db8",
               }}
+              onClick={handleContinueClick}
             >
               <Typography sx={{ color: "#ffff", fontSize: "16px" }}>
                 Continue
@@ -127,12 +137,11 @@ export const SignUp = () => {
                 columnGap: "20px",
                 cursor: "pointer",
                 marginTop: "1rem",
-
               }}
             >
               <img src={Facebook} />
               <Typography sx={{ color: "#03014c" }}>
-              Sign up with Facebook
+                Sign up with Facebook
               </Typography>
             </Box>
             <Box
@@ -150,7 +159,7 @@ export const SignUp = () => {
             >
               <img src={Google} />
               <Typography sx={{ color: "#03014c" }}>
-              Sign up with Google
+                Sign up with Google
               </Typography>
             </Box>
 

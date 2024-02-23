@@ -37,7 +37,7 @@ export const Login = () => {
               textAlign: "center",
             }}
           >
-            Get Started by Providing Your Email Rizwan
+            Get Started by Providing Your Email
           </Typography>
           <Typography
             variant="body1"
