@@ -1,7 +1,8 @@
 import { Box, Container, Typography } from "@mui/material";
 import Logo from "../assets/Logo.png";
 import { useNavigate } from "react-router-dom";
-export const WaitScreen = () => {
+import CircularProgressLoading from "../components/CircularProgressLoading";
+export const WaitScreen = ({titleOne, titletwo}) => {
   const navigate = useNavigate();
   const handleClick = () => {
     navigate("/signup");
@@ -30,40 +31,57 @@ export const WaitScreen = () => {
             variant="h2"
             sx={{
               fontFamily: "Inter, sans-serif",
-              fontSize: { xs: "30px", md: "40px" },
+              fontSize: { xs: "30px", md: "48px" },
               fontWeight: "bold",
               textAlign: "center",
             }}
           >
-            Get Your Team Started
+           {titleOne}
+          </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: { xs: "30px", md: "48px" },
+              fontWeight: "bold",
+              textAlign: "center",
+              color: "#4F25C8",
+            }}
+          >
+            {titletwo}
           </Typography>
 
           <Box
             sx={{
               display: "flex",
               padding: "10px",
-              marginTop: "1rem",
+              marginTop: "3rem",
               width: "300px",
               justifyContent: "center",
               columnGap: "20px",
+           
             }}
           >
-            <Typography sx={{ color: "black", fontSize: "16px" }}>
-            Please Wait
-              <span
-                style={{
-                  color: "#633db8",
-                  fontWeight: "bold",
-                  cursor: "pointer",
-                }}
-                onClick={handleClick}
-              >
-               .....
-              </span>
-            </Typography>
+            <CircularProgressLoading />
           </Box>
+          <Typography sx={{ color: "black", fontSize: "16px" ,mt:5}}>
+            Please Wait
+            <span
+              style={{
+                color: "#633db8",
+                fontWeight: "bold",
+                cursor: "pointer",
+              }}
+              onClick={handleClick}
+            >
+              .....
+            </span>
+          </Typography>
+
         </Box>
       </Box>
     </Container>
   );
 };
+
+
